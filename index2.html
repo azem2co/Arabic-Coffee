@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arabic Coffee Talk | قهوة عربية</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <header>
+    <nav class="navbar" id="navbar">
+      <div class="container">
+        <a href="#hero" class="nav-logo" aria-label="Arabic Coffee Talk home">
+          <img src="/Logo/PNG/Colored/icon.png" alt="" srcset="">
+          <div class="text">
+            <h1>قهوة عربيّة</h1>
+            <h3>Sip Coffee, Speak Arabic</h3>
+          </div>
+          
+        </a>
+
+        <ul class="nav-links" role="navigation" aria-label="Main navigation">
+          <li><a href="#about">About</a></li>
+          <li><a href="#sessions">Sessions</a></li>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#join"><span class="btn btn-primary btn-sm">Join Now</span></a></li>
+        </ul>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <!-- Mobile menu -->
+      <div class="nav-mobile" id="navMobile" role="navigation" aria-label="Mobile navigation">
+        <a href="#about"    onclick="closeMobileMenu()">About</a>
+        <a href="#sessions" onclick="closeMobileMenu()">Sessions</a>
+        <a href="#how"      onclick="closeMobileMenu()">How It Works</a>
+        <a href="#join"     onclick="closeMobileMenu()">Join Now ☕</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         HERO SECTION
+    ============================================================ -->
+    <section class="hero pattern-bg" id="hero" aria-label="Hero">
+      <div class="container">
+
+        <!-- Left: Content -->
+        <div class="hero-content">
+          <div class="hero-badge reveal">
+            ☕ &nbsp;Weekly Arabic Meetup
+          </div>
+
+          <h1>
+            <span class="hero-title-arabic reveal">قهوة عربية</span>
+            <br>
+            <span class="hero-title-english reveal">Sip Coffee,Speak Arabic</span>
+          </h1>
+
+          <p class="hero-description reveal">
+            A weekly space to connect, talk, and explore Arabic language and culture, just good conversations over great coffee.
+          </p>
+
+          <div class="hero-actions reveal">
+            <a href="#join" class="btn btn-primary">
+              Join the Next Session 
+            </a>
+            <a href="#about" class="btn btn-outline">
+              Learn More
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Visual card -->
+        <div class="hero-visual reveal-right">
+          <div class="hero-card">
+            <div class="hero-deco hero-deco-1"></div>
+            <div class="hero-deco hero-deco-2"></div>
+            <div class="cc"><img class="hero-coffee-icon" src="/Logo/PNG/Colored/icon.png" alt="" srcset="" style="height: 100px;justify-content: center;"></div>
+            
+
+            <p class="hero-card-title">Next Session</p>
+            <p class="hero-card-text">Every Saturday · 10:00 AM (GMT+3)</p>
+
+            <div class="hero-stats">
+              <div class="hero-stat">
+                <span class="hero-stat-number">120+</span>
+                <span class="hero-stat-label">Members</span>
+              </div>
+              <div class="hero-stat">
+                <span class="hero-stat-number">40+</span>
+                <span class="hero-stat-label">Sessions</span>
+              </div>
+              <div class="hero-stat">
+                <span class="hero-stat-number">25+</span>
+                <span class="hero-stat-label">Countries</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="scroll-indicator" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+        Scroll
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ABOUT SECTION
+    ============================================================ -->
+    <section class="about section" id="about" aria-label="About">
+      <div class="container">
+
+        <!-- Left: Text -->
+        <div class="about-text">
+          <p class="section-label reveal-left">☕ Our Story</p>
+          <h2 class="section-title reveal-left">What is Arabic Coffee Talk?</h2>
+          <p class="section-subtitle reveal-left">
+            Arabic Coffee Talk is a warm, judgment-free, weekly gathering for anyone curious
+            about the Arabic language — from beginners to advanced speakers, All Arabic Language lovers.
+          </p>
+
+          <p class="reveal-left mt-16" style="font-size:0.95rem; color:var(--color-text-light); line-height:1.85;">
+            We believe the best way to learn a language is through real conversations, shared
+            laughter over a cup of coffee. Each session revolves around a fun theme — from
+            everyday phrases to cultural stories — making Arabic feel easy, not complicated.
+          </p>
+
+          <div class="about-features">
+            <div class="about-feature reveal-left">
+              <div class="about-feature-icon">🗣️</div>
+              <div class="about-feature-text">
+                <h4>Open Arabic Talks</h4>
+                <p>No scripted drills — just authentic dialogue that builds confidence naturally.</p>
+              </div>
+            </div>
+
+            <div class="about-feature reveal-left">
+              <div class="about-feature-icon">🎧</div>
+              <div class="about-feature-text">
+                <h4>Talk to "Ustaz"</h4>
+                <p>Ustaz is a native Arabic speaker with experience over 25 years in teaching, who guides discussions and shares cultural insights.</p>
+              </div>
+            </div>
+
+            <div class="about-feature reveal-left">
+              <div class="about-feature-icon">🎯</div>
+              <div class="about-feature-text">
+                <h4>All Levels Welcome</h4>
+                <p>Whether you know zero Arabic or can hold a basic conversation — you belong to here.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Visual -->
+        <div class="about-visual reveal-right">
+          <div class="about-quote-card">
+            <span class="about-quote-mark" aria-hidden="true">"</span>
+            <p class="about-quote-text">
+              "القهوة بدون حديث مثل الليل بدون نجوم"
+            </p>
+            <p class="about-quote-translation">
+              "Coffee without conversation is like a night without stars."
+            </p>
+            <p class="about-quote-author">— My Father says </p>
+          </div>
+
+          <div class="about-mini-cards mt-16">
+            <div class="about-mini-card reveal">
+              <div class="about-mini-card-icon">📅</div>
+              <div class="about-mini-card-label">Every Thursday</div>
+            </div>
+            <div class="about-mini-card reveal">
+              <div class="about-mini-card-icon">⏱️</div>
+              <div class="about-mini-card-label">60 Minutes</div>
+            </div>
+            <div class="about-mini-card reveal">
+              <div class="about-mini-card-icon">💻</div>
+              <div class="about-mini-card-label">Online · Free</div>
+            </div>
+            <div class="about-mini-card reveal">
+              <div class="about-mini-card-icon">🌱</div>
+              <div class="about-mini-card-label">All Levels</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         UPCOMING SESSIONS
+    ============================================================ -->
+    <section class="sessions section" id="sessions" aria-label="Upcoming sessions">
+      <div class="container">
+
+        <div class="section-header centered">
+          <p class="section-label reveal">📅 Upcoming</p>
+          <h2 class="section-title reveal">Upcoming Sessions</h2>
+          <p class="section-subtitle reveal">
+            Each week brings a new theme, a new story, and new friends.
+            Pick a session and come as you are.
+          </p>
+        </div>
+
+        <div class="sessions-grid">
+
+          <!-- Session Card 1 — Featured -->
+          <article class="session-card featured reveal">
+            <div class="session-header">
+              <span class="session-emoji">🌙</span>
+              <span class="session-date">📅 May 17, 2026</span>
+            </div>
+            <p class="session-topic">Theme of the Week</p>
+            <h3 class="session-title">Greetings & First Impressions — كيف حالك؟</h3>
+            <p class="session-desc">
+              Master the art of Arabic greetings — from the classic "مرحبا" to regional
+              expressions that open doors and warm hearts. Perfect for absolute beginners.
+            </p>
+            <div class="session-meta">
+              <span>⏰ 10:00 AM GMT+3</span>
+              <span>👥 18 joined</span>
+            </div>
+            <a href="#join" class="btn btn-gold btn-sm mt-8">Join This Session ☕</a>
+          </article>
+
+          <!-- Session Card 2 -->
+          <article class="session-card reveal">
+            <div class="session-header">
+              <span class="session-emoji">🍽️</span>
+              <span class="session-date">📅 May 24, 2026</span>
+            </div>
+            <p class="session-topic">Food & Culture</p>
+            <h3 class="session-title">Arabic Food & Flavors — أكلات عربية</h3>
+            <p class="session-desc">
+              Explore the rich vocabulary of Arabic cuisine — from street food to
+              family feasts. We'll taste words like "مجبوس", "كنافة", and "منسف".
+            </p>
+            <div class="session-meta">
+              <span>⏰ 10:00 AM GMT+3</span>
+              <span>👥 12 joined</span>
+            </div>
+            <a href="#join" class="btn btn-outline btn-sm mt-8">Join This Session</a>
+          </article>
+
+          <!-- Session Card 3 -->
+          <article class="session-card reveal">
+            <div class="session-header">
+              <span class="session-emoji">🎶</span>
+              <span class="session-date">📅 May 31, 2026</span>
+            </div>
+            <p class="session-topic">Music & Poetry</p>
+            <h3 class="session-title">Arabic Music & Poetry — موسيقى وشعر</h3>
+            <p class="session-desc">
+              Dive into the soul of the Arabic language through music and poetry.
+              We'll explore lyrics, discuss emotions, and learn expressive phrases.
+            </p>
+            <div class="session-meta">
+              <span>⏰ 10:00 AM GMT+3</span>
+              <span>👥 9 joined</span>
+            </div>
+            <a href="#join" class="btn btn-outline btn-sm mt-8">Join This Session</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         HOW IT WORKS
+    ============================================================ -->
+    <section class="how-it-works section" id="how" aria-label="How it works">
+      <div class="container">
+
+        <div class="section-header centered">
+          <p class="section-label reveal">✨ Simple Process</p>
+          <h2 class="section-title reveal">How It Works</h2>
+          <p class="section-subtitle reveal">
+            Four easy steps to your first Arabic conversation over coffee.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+
+          <div class="step reveal">
+            <div class="step-number">
+              ✍️
+              <span class="step-count">1</span>
+            </div>
+            <h3 class="step-title">Sign Up</h3>
+            <p class="step-desc">Fill in the quick form below. No experience needed — just curiosity and a love for coffee.</p>
+          </div>
+
+          <div class="step reveal">
+            <div class="step-number">
+              📧
+              <span class="step-count">2</span>
+            </div>
+            <h3 class="step-title">Get the Link</h3>
+            <p class="step-desc">Receive a session invite in your inbox with the topic, time, and a warm welcome note.</p>
+          </div>
+
+          <div class="step reveal">
+            <div class="step-number">
+              ☕
+              <span class="step-count">3</span>
+            </div>
+            <h3 class="step-title">Brew Your Coffee</h3>
+            <p class="step-desc">Make your favourite cup, find a cozy spot, and show up as you are. No prep required.</p>
+          </div>
+
+          <div class="step reveal">
+            <div class="step-number">
+              🗣️
+              <span class="step-count">4</span>
+            </div>
+            <h3 class="step-title">Start Talking</h3>
+            <p class="step-desc">Join the conversation, laugh, learn, and leave with new words and new friends.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         COMMUNITY / TESTIMONIALS
+    ============================================================ -->
+    <section class="community section" id="community" aria-label="Community voices">
+      <div class="container">
+
+        <div class="section-header centered">
+          <p class="section-label reveal" style="color:var(--color-accent);">💬 Community Voices</p>
+          <h2 class="section-title reveal">What Our Members Say</h2>
+          <p class="section-subtitle reveal" style="margin-inline:auto;">
+            Real stories from real people who sipped coffee and discovered Arabic.
+          </p>
+        </div>
+
+        <div class="testimonials-grid">
+
+          <div class="testimonial-card reveal">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+              "I was terrified of Arabic before joining. After just three sessions,
+              I could greet my Jordanian colleagues and they were genuinely impressed!
+              The atmosphere is so warm and non-judgmental."
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">🇬🇧</div>
+              <div>
+                <p class="testimonial-name">Sarah M.</p>
+                <p class="testimonial-country">United Kingdom</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card reveal">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+              "As a heritage speaker who grew up in the US, I lost a lot of my Arabic.
+              This group helped me reconnect with my roots in the most beautiful way.
+              شكراً جزيلاً for creating this space!"
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">🇺🇸</div>
+              <div>
+                <p class="testimonial-name">Karim A.</p>
+                <p class="testimonial-country">United States</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card reveal">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+              "The food session was my favourite! I learned so many words I actually
+              use every day now. And the community is incredibly supportive.
+              I look forward to Saturday mornings every week."
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">🇩🇪</div>
+              <div>
+                <p class="testimonial-name">Lena K.</p>
+                <p class="testimonial-country">Germany</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         JOIN FORM SECTION
+    ============================================================ -->
+    <section class="join-section section" id="join" aria-label="Join the community">
+      <div class="container">
+        <div class="join-wrapper">
+
+          <!-- Left: Info -->
+          <div class="join-info">
+            <p class="section-label reveal-left">☕ Ready to Join?</p>
+            <h2 class="section-title reveal-left">Reserve Your Seat at the Table</h2>
+            <p class="section-subtitle reveal-left">
+              It's free, it's friendly, and it's the most fun you'll have learning a language.
+              Fill in the form and we'll send you everything you need.
+            </p>
+
+            <div class="join-perks">
+              <div class="join-perk reveal-left">
+                <span class="join-perk-dot"></span>
+                Free to join — always
+              </div>
+              <div class="join-perk reveal-left">
+                <span class="join-perk-dot"></span>
+                Weekly session reminders in your inbox
+              </div>
+              <div class="join-perk reveal-left">
+                <span class="join-perk-dot"></span>
+                Access to our private community chat
+              </div>
+              <div class="join-perk reveal-left">
+                <span class="join-perk-dot"></span>
+                Session recordings & vocabulary sheets
+              </div>
+              <div class="join-perk reveal-left">
+                <span class="join-perk-dot"></span>
+                No commitment — join when you can
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Form -->
+          <div class="form-card reveal-right">
+
+            <!-- Form content -->
+            <div id="formContent">
+              <h3 class="form-card-title">Join the Talk ☕</h3>
+              <p class="form-card-subtitle">Takes less than 30 seconds. No spam, ever.</p>
+
+              <form id="joinForm" novalidate>
+
+                <!-- Name -->
+                <div class="form-group">
+                  <label class="form-label" for="name">Your Name *</label>
+                  <input
+                    class="form-input"
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="e.g. Sarah Johnson"
+                    autocomplete="name"
+                  />
+                  <span class="form-error-msg" id="nameError">Please enter your name.</span>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                  <label class="form-label" for="email">Email Address *</label>
+                  <input
+                    class="form-input"
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="e.g. sarah@example.com"
+                    autocomplete="email"
+                  />
+                  <span class="form-error-msg" id="emailError">Please enter a valid email address.</span>
+                </div>
+
+                <!-- Country -->
+                <div class="form-group">
+                  <label class="form-label" for="country">Your Country *</label>
+                  <div class="select-wrapper">
+                    <select class="form-select" id="country" name="country">
+                      <option value="" disabled selected>Select your country…</option>
+                      <option>Afghanistan</option><option>Albania</option><option>Algeria</option>
+                      <option>Argentina</option><option>Australia</option><option>Austria</option>
+                      <option>Bahrain</option><option>Bangladesh</option><option>Belgium</option>
+                      <option>Brazil</option><option>Canada</option><option>China</option>
+                      <option>Colombia</option><option>Croatia</option><option>Czech Republic</option>
+                      <option>Denmark</option><option>Egypt</option><option>Ethiopia</option>
+                      <option>Finland</option><option>France</option><option>Germany</option>
+                      <option>Ghana</option><option>Greece</option><option>Hungary</option>
+                      <option>India</option><option>Indonesia</option><option>Iran</option>
+                      <option>Iraq</option><option>Ireland</option><option>Israel</option>
+                      <option>Italy</option><option>Japan</option><option>Jordan</option>
+                      <option>Kenya</option><option>Kuwait</option><option>Lebanon</option>
+                      <option>Libya</option><option>Malaysia</option><option>Mexico</option>
+                      <option>Morocco</option><option>Netherlands</option><option>New Zealand</option>
+                      <option>Nigeria</option><option>Norway</option><option>Oman</option>
+                      <option>Pakistan</option><option>Palestine</option><option>Philippines</option>
+                      <option>Poland</option><option>Portugal</option><option>Qatar</option>
+                      <option>Romania</option><option>Russia</option><option>Saudi Arabia</option>
+                      <option>Senegal</option><option>Singapore</option><option>South Africa</option>
+                      <option>South Korea</option><option>Spain</option><option>Sudan</option>
+                      <option>Sweden</option><option>Switzerland</option><option>Syria</option>
+                      <option>Thailand</option><option>Tunisia</option><option>Turkey</option>
+                      <option>UAE</option><option>Uganda</option><option>Ukraine</option>
+                      <option>United Kingdom</option><option>United States</option>
+                      <option>Yemen</option><option>Other</option>
+                    </select>
+                  </div>
+                  <span class="form-error-msg" id="countryError">Please select your country.</span>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-submit">
+                  Join the Talk ☕
+                </button>
+
+              </form>
+            </div>
+
+            <!-- Success message (hidden initially) -->
+            <div class="form-success" id="formSuccess" aria-live="polite">
+              <span class="form-success-icon">🎉</span>
+              <h3 class="form-success-title">أهلاً وسهلاً! Welcome!</h3>
+              <p class="form-success-text">
+                You're in! Check your inbox for session details.<br/>
+                We can't wait to share a virtual coffee with you. ☕
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <!-- Brand -->
+        <div class="footer-brand">
+          <span class="footer-logo-arabic">قهوة عربية ☕</span>
+          <span class="footer-logo-tagline">Sip Coffee. Speak Arabic.</span>
+          <p class="footer-brand-desc">
+            A weekly community gathering where language learners from around the world
+            connect over coffee and discover the beauty of Arabic together.
+          </p>
+
+          <div class="footer-social" aria-label="Social media links">
+            <!-- Instagram placeholder -->
+            <a href="#" class="footer-social-link" aria-label="Instagram" title="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <!-- Twitter / X placeholder -->
+            <a href="#" class="footer-social-link" aria-label="Twitter" title="Twitter / X">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.43.36a9 9 0 0 1-2.88 1.1A4.52 4.52 0 0 0 16.11 0c-2.5 0-4.52 2.02-4.52 4.52 0 .35.04.7.11 1.03C7.69 5.37 4.07 3.58 1.64.9a4.52 4.52 0 0 0-.61 2.27c0 1.57.8 2.95 2.01 3.76a4.5 4.5 0 0 1-2.05-.57v.06c0 2.19 1.56 4.02 3.63 4.43a4.56 4.56 0 0 1-2.04.08c.57 1.79 2.24 3.09 4.21 3.13A9.05 9.05 0 0 1 0 19.54a12.77 12.77 0 0 0 6.92 2.03c8.3 0 12.84-6.88 12.84-12.85 0-.2 0-.39-.01-.58A9.17 9.17 0 0 0 23 3z"></path>
+              </svg>
+            </a>
+            <!-- YouTube placeholder -->
+            <a href="#" class="footer-social-link" aria-label="YouTube" title="YouTube">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"></path>
+                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon>
+              </svg>
+            </a>
+            <!-- WhatsApp placeholder -->
+            <a href="#" class="footer-social-link" aria-label="WhatsApp" title="WhatsApp Community">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick links -->
+        <div>
+          <p class="footer-col-title">Quick Links</p>
+          <ul class="footer-links">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#sessions">Upcoming Sessions</a></li>
+            <li><a href="#how">How It Works</a></li>
+            <li><a href="#join">Join the Community</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div>
+          <p class="footer-col-title">Resources</p>
+          <ul class="footer-links">
+            <li><a href="#">Session Archive</a></li>
+            <li><a href="#">Vocabulary Sheets</a></li>
+            <li><a href="#">Arabic Learning Tips</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          © 2026 Arabic Coffee Talk · قهوة عربية. All rights reserved.
+        </p>
+        <p class="footer-made-with">
+          Made with <span>☕ & ❤️</span> for language lovers worldwide
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    /* ============================================================
+       1. NAVBAR — scroll effect & mobile toggle
+    ============================================================ */
+    const navbar    = document.getElementById('navbar');
+    const navToggle = document.getElementById('navToggle');
+    const navMobile = document.getElementById('navMobile');
+
+    // Sticky navbar style on scroll
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }, { passive: true });
+
+    // Mobile menu toggle
+    navToggle.addEventListener('click', () => {
+      const isOpen = navMobile.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    // Close mobile menu helper
+    function closeMobileMenu() {
+      navMobile.classList.remove('open');
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }
+
+    // Close mobile menu on outside click
+    document.addEventListener('click', (e) => {
+      if (!navbar.contains(e.target)) {
+        closeMobileMenu();
+      }
+    });
+
+    /* ============================================================
+       2. SMOOTH SCROLL for anchor links
+    ============================================================ */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          const offset = 80; // navbar height
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    /* ============================================================
+       3. SCROLL REVEAL ANIMATION (IntersectionObserver)
+    ============================================================ */
+    const revealClasses = ['.reveal', '.reveal-left', '.reveal-right'];
+    const allRevealEls  = document.querySelectorAll(revealClasses.join(','));
+
+    // Stagger delay for sibling elements in the same parent
+    function applyStaggerDelay() {
+      const parents = new Map();
+      allRevealEls.forEach(el => {
+        const parent = el.parentElement;
+        if (!parents.has(parent)) parents.set(parent, []);
+        parents.get(parent).push(el);
+      });
+
+      parents.forEach(children => {
+        if (children.length > 1) {
+          children.forEach((child, i) => {
+            child.style.transitionDelay = `${i * 0.1}s`;
+          });
+        }
+      });
+    }
+
+    applyStaggerDelay();
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target); // animate once
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    allRevealEls.forEach(el => revealObserver.observe(el));
+
+    /* ============================================================
+       4. FORM VALIDATION & SUBMISSION
+    ============================================================ */
+    const joinForm    = document.getElementById('joinForm');
+    const formContent = document.getElementById('formContent');
+    const formSuccess = document.getElementById('formSuccess');
+
+    // Helper: show error
+    function showError(inputEl, errorEl, message) {
+      inputEl.classList.add('error');
+      errorEl.textContent = message;
+      errorEl.classList.add('visible');
+    }
+
+    // Helper: clear error
+    function clearError(inputEl, errorEl) {
+      inputEl.classList.remove('error');
+      errorEl.classList.remove('visible');
+    }
+
+    // Real-time validation on blur
+    const nameInput    = document.getElementById('name');
+    const emailInput   = document.getElementById('email');
+    const countryInput = document.getElementById('country');
+
+    const nameError    = document.getElementById('nameError');
+    const emailError   = document.getElementById('emailError');
+    const countryError = document.getElementById('countryError');
+
+    nameInput.addEventListener('blur', () => {
+      if (nameInput.value.trim().length < 2) {
+        showError(nameInput, nameError, 'Please enter your full name (at least 2 characters).');
+      } else {
+        clearError(nameInput, nameError);
+      }
+    });
+
+    emailInput.addEventListener('blur', () => {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(emailInput.value.trim())) {
+        showError(emailInput, emailError, 'Please enter a valid email address.');
+      } else {
+        clearError(emailInput, emailError);
+      }
+    });
+
+    countryInput.addEventListener('change', () => {
+      if (!countryInput.value) {
+        showError(countryInput, countryError, 'Please select your country.');
+      } else {
+        clearError(countryInput, countryError);
+      }
+    });
+
+    // Form submit
+    joinForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      let valid = true;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      // Validate name
+      if (nameInput.value.trim().length < 2) {
+        showError(nameInput, nameError, 'Please enter your full name (at least 2 characters).');
+        valid = false;
+      } else {
+        clearError(nameInput, nameError);
+      }
+
+      // Validate email
+      if (!emailRegex.test(emailInput.value.trim())) {
+        showError(emailInput, emailError, 'Please enter a valid email address.');
+        valid = false;
+      } else {
+        clearError(emailInput, emailError);
+      }
+
+      // Validate country
+      if (!countryInput.value) {
+        showError(countryInput, countryError, 'Please select your country.');
+        valid = false;
+      } else {
+        clearError(countryInput, countryError);
+      }
+
+      if (!valid) return;
+
+      // Simulate async submission
+      const submitBtn = joinForm.querySelector('[type="submit"]');
+      submitBtn.textContent = 'Sending…';
+      submitBtn.disabled = true;
+
+      setTimeout(() => {
+        // Hide form, show success
+        joinForm.style.display = 'none';
+        document.querySelector('.form-card-title').style.display = 'none';
+        document.querySelector('.form-card-subtitle').style.display = 'none';
+        formSuccess.classList.add('visible');
+      }, 900);
+    });
+
+    /* ============================================================
+       5. ACTIVE NAV LINK HIGHLIGHTING on scroll
+    ============================================================ */
+    const sections    = document.querySelectorAll('section[id]');
+    const navAnchors  = document.querySelectorAll('.nav-links a[href^="#"]');
+
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            navAnchors.forEach(a => {
+              a.style.color = '';
+              if (a.getAttribute('href') === `#${entry.target.id}`) {
+                a.style.color = 'var(--color-primary)';
+              }
+            });
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+
+    sections.forEach(s => sectionObserver.observe(s));
+
+    /* ============================================================
+       6. HERO COFFEE ICON — parallax tilt on mousemove
+    ============================================================ */
+    const heroCard = document.querySelector('.hero-card');
+    if (heroCard) {
+      document.addEventListener('mousemove', (e) => {
+        const { innerWidth, innerHeight } = window;
+        const x = (e.clientX / innerWidth  - 0.5) * 10;
+        const y = (e.clientY / innerHeight - 0.5) * 10;
+        heroCard.style.transform = `perspective(800px) rotateY(${x}deg) rotateX(${-y}deg)`;
+      });
+
+      document.addEventListener('mouseleave', () => {
+        heroCard.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg)';
+      });
+    }
+  </script>
+
+</body>
+</html>
+
