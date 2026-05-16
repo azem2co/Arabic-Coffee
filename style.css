@@ -94,7 +94,7 @@ ul {
   align-items: center;
   gap: 8px;
   font-size: 0.78rem;
-  font-weight: 600;
+  font-weight: 900;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-accent);
@@ -495,7 +495,7 @@ ul {
 
 .hero-title-arabic {
   font-family: var(--font-arabic);
-  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-size: clamp(2rem, 7vw, 4.5rem);
   font-weight: 600;
   color: var(--color-primary);
   line-height: 1.05;
