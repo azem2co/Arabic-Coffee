@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archive | Arabic Coffee Talk | قهوة عربية</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* ============================================================
+       CSS CUSTOM PROPERTIES (Design Tokens)
+    ============================================================ */
+    :root {
+      --color-primary:    #4B2E2B;
+      --color-secondary:  #E6D3B3;
+      --color-bg:         #F7F3EE;
+      --color-accent:     #C8A96A;
+      --color-olive:      #6B7D5C;
+      --color-text:       #2D1F1E;
+      --color-text-light: #7A5C58;
+      --color-white:      #FFFFFF;
+      --color-card-bg:    #FFFDF9;
+
+      --font-arabic:  'Cairo', sans-serif;
+      --font-english: 'Poppins', sans-serif;
+
+      --radius-sm:  8px;
+      --radius-md:  12px;
+      --radius-lg:  20px;
+      --radius-xl:  32px;
+
+      --shadow-sm:  0 2px 8px rgba(75, 46, 43, 0.08);
+      --shadow-md:  0 6px 24px rgba(75, 46, 43, 0.12);
+      --shadow-lg:  0 16px 48px rgba(75, 46, 43, 0.16);
+
+      --max-width: 1200px;
+      --transition: 0.3s ease;
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-english);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       NAVBAR
+    ============================================================ */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(247, 243, 238, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(75, 46, 43, 0.1);
+      transition: all var(--transition);
+    }
+
+    nav.scrolled {
+      background: rgba(247, 243, 238, 0.98);
+      box-shadow: var(--shadow-md);
+    }
+
+    .nav-container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-arabic);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--color-text);
+      font-weight: 500;
+      font-size: 0.95rem;
+      position: relative;
+      transition: color var(--transition);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--color-accent);
+      transition: width var(--transition);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-links a.active {
+      color: var(--color-accent);
+    }
+
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      background: var(--color-primary);
+      color: var(--color-white);
+      padding: 0.6rem 1.4rem;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all var(--transition);
+    }
+
+    .nav-cta:hover {
+      background: var(--color-accent);
+      transform: translateY(-2px);
+    }
+
+    /* Mobile Menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: var(--color-primary);
+      border-radius: 2px;
+      transition: all var(--transition);
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+    }
+
+    /* ============================================================
+       HERO SECTION
+    ============================================================ */
+    .hero {
+      margin-top: 80px;
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, var(--color-bg) 0%, rgba(230, 211, 179, 0.2) 100%);
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(200, 169, 106, 0.15);
+      color: var(--color-accent);
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-lg);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-family: var(--font-arabic);
+      color: var(--color-primary);
+      margin-bottom: 0.5rem;
+      font-weight: 900;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--color-text-light);
+      max-width: 600px;
+      margin: 1rem auto;
+      line-height: 1.8;
+    }
+
+    /* ============================================================
+       MAIN CONTENT
+    ============================================================ */
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    /* Filter & Search Section */
+    .filter-section {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .search-box {
+      flex: 1;
+      min-width: 250px;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 2px solid var(--color-secondary);
+      border-radius: var(--radius-md);
+      font-family: var(--font-english);
+      font-size: 0.95rem;
+      transition: all var(--transition);
+      background: var(--color-white);
+    }
+
+    .search-box input:focus {
+      outline: none;
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px rgba(200, 169, 106, 0.1);
+    }
+
+    .sort-select {
+      padding: 0.75rem 1rem;
+      border: 2px solid var(--color-secondary);
+      border-radius: var(--radius-md);
+      font-family: var(--font-english);
+      font-size: 0.95rem;
+      background: var(--color-white);
+      cursor: pointer;
+      transition: all var(--transition);
+      color: var(--color-text);
+    }
+
+    .sort-select:focus {
+      outline: none;
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px rgba(200, 169, 106, 0.1);
+    }
+
+    /* Sessions Grid */
+    .sessions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .session-card {
+      background: var(--color-card-bg);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition);
+      border: 1px solid rgba(75, 46, 43, 0.05);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .session-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .session-emoji {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .session-date {
+      font-size: 0.8rem;
+      color: var(--color-accent);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .session-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 0.75rem;
+      font-family: var(--font-english);
+    }
+
+    .session-description {
+      font-size: 0.95rem;
+      color: var(--color-text-light);
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+      line-height: 1.6;
+    }
+
+    .session-actions {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 0.7rem 1rem;
+      border: none;
+      border-radius: var(--radius-md);
+      font-family: var(--font-english);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .btn-download {
+      background: var(--color-primary);
+      color: var(--color-white);
+    }
+
+    .btn-download:hover {
+      background: var(--color-accent);
+      transform: translateY(-2px);
+    }
+
+    .btn-preview {
+      background: transparent;
+      border: 2px solid var(--color-accent);
+      color: var(--color-accent);
+    }
+
+    .btn-preview:hover {
+      background: var(--color-accent);
+      color: var(--color-white);
+      transform: translateY(-2px);
+    }
+
+    /* ============================================================
+       MODALS - OVERLAY & BASE STYLES
+    ============================================================ */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 1rem;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: scale(0.95) translateY(20px);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .modal-content {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      max-width: 500px;
+      width: 100%;
+      animation: slideUp 0.3s ease;
+      position: relative;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem;
+      border-bottom: 1px solid rgba(75, 46, 43, 0.1);
+    }
+
+    .modal-header h2 {
+      font-size: 1.3rem;
+      color: var(--color-primary);
+      margin: 0;
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--color-text-light);
+      transition: all var(--transition);
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-sm);
+    }
+
+    .modal-close:hover {
+      background: var(--color-bg);
+      color: var(--color-primary);
+    }
+
+    .modal-body {
+      padding: 1.5rem;
+    }
+
+    .modal-description {
+      color: var(--color-text-light);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       DOWNLOAD MODAL
+    ============================================================ */
+    .download-options {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .download-btn {
+      padding: 1rem;
+      border: 2px solid var(--color-secondary);
+      border-radius: var(--radius-md);
+      background: var(--color-white);
+      cursor: pointer;
+      font-family: var(--font-english);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      transition: all var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+
+    .download-btn:hover {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      color: var(--color-white);
+      transform: translateY(-2px);
+    }
+
+    /* ============================================================
+       PREVIEW MODAL
+    ============================================================ */
+    .preview-modal-content {
+      max-width: 700px;
+      max-height: 85vh;
+      overflow-y: auto;
+    }
+
+    .preview-modal-content::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .preview-modal-content::-webkit-scrollbar-track {
+      background: var(--color-bg);
+      border-radius: 10px;
+    }
+
+    .preview-modal-content::-webkit-scrollbar-thumb {
+      background: var(--color-accent);
+      border-radius: 10px;
+    }
+
+    .preview-modal-content::-webkit-scrollbar-thumb:hover {
+      background: var(--color-primary);
+    }
+
+    .audio-player-section {
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 2px solid var(--color-secondary);
+    }
+
+    .audio-player-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--color-text-light);
+      margin-bottom: 0.75rem;
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    audio {
+      width: 100%;
+      height: 40px;
+      border-radius: var(--radius-md);
+      background: var(--color-bg);
+    }
+
+    audio::-webkit-media-controls-panel {
+      background-color: var(--color-secondary);
+    }
+
+    .text-content {
+      font-family: var(--font-arabic);
+      line-height: 2;
+      color: var(--color-text);
+      font-size: 1.1rem;
+    }
+
+    .text-content p {
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+
+    .text-content strong {
+      color: var(--color-primary);
+      font-weight: 700;
+    }
+
+    .text-content em {
+      color: var(--color-accent);
+      font-style: italic;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: var(--color-primary);
+      color: var(--color-white);
+      padding: 3rem 2rem 1rem;
+      margin-top: 4rem;
+    }
+
+    .footer-container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .footer-section p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links a {
+      color: var(--color-white);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all var(--transition);
+      opacity: 0.9;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+      color: var(--color-accent);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-icons a {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: all var(--transition);
+    }
+
+    .social-icons a:hover {
+      background: var(--color-accent);
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+
+    /* ============================================================
+       RESPONSIVE DESIGN
+    ============================================================ */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .filter-section {
+        flex-direction: column;
+      }
+
+      .search-box {
+        min-width: unset;
+      }
+
+      .sessions-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .modal-content {
+        max-width: 90%;
+      }
+
+      .preview-modal-content {
+        max-height: 80vh;
+      }
+    }
+
+    @media (max-width: 480px) {
+      main {
+        padding: 2rem 1rem;
+      }
+
+      .hero {
+        padding: 2rem 1rem;
+      }
+
+      .hero h1 {
+        font-size: 1.5rem;
+      }
+
+      .session-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+
+    /* ============================================================
+       UTILITY CLASSES
+    ============================================================ */
+    .hidden {
+      display: none !important;
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--color-text-light);
+    }
+
+    .no-results p {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ============================================================
+       NAVBAR
+  ============================================================ -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        قهوة عربية ☕
+        <span style="font-family: var(--font-english); font-size: 0.8rem;">Sip Coffee. Speak Arabic.</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#sessions">Sessions</a></li>
+        <li><a href="archive.html" class="active">Archive</a></li>
+        <li><a href="index.html#join">Join Now</a></li>
+      </ul>
+      <a href="index.html#join" class="nav-cta">Join Now</a>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO SECTION
+  ============================================================ -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">📚 Session Archive</div>
+      <h1>أرشيف مقهى العربية</h1>
+      <p>هنا تجد جميع الجلسات السابقة مع موادها لتستمتع بالتعلم في أي وقت ☕</p>
+      <p style="font-size: 1rem; margin-top: 1.5rem;">Explore past sessions, download materials, and continue your Arabic learning journey.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MAIN CONTENT
+  ============================================================ -->
+  <main>
+    <!-- Filter & Search -->
+    <div class="filter-section">
+      <div class="search-box">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search sessions..."
+          aria-label="Search sessions"
+        />
+      </div>
+      <select id="sortSelect" class="sort-select" aria-label="Sort sessions">
+        <option value="newest">Newest First</option>
+        <option value="oldest">Oldest First</option>
+        <option value="title">Title (A-Z)</option>
+      </select>
+    </div>
+
+    <!-- Sessions Grid -->
+    <div class="sessions-grid" id="sessionsGrid">
+      <!-- Dynamically populated by JavaScript -->
+    </div>
+
+    <!-- No Results Message -->
+    <div class="no-results hidden" id="noResults">
+      <p>No sessions found matching your search.</p>
+      <p style="font-size: 0.9rem;">Try adjusting your filters or search terms.</p>
+    </div>
+  </main>
+
+  <!-- ============================================================
+       DOWNLOAD MODAL
+  ============================================================ -->
+  <div class="modal-overlay" id="downloadModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Download Session Materials</h2>
+        <button class="modal-close" aria-label="Close modal" data-modal="downloadModal">✕</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-description">Choose what you want to download from this session:</p>
+        <div class="download-options">
+          <button class="download-btn" id="downloadPdfBtn">
+            📄 Download PDF
+          </button>
+          <button class="download-btn" id="downloadAudioBtn">
+            🎵 Download Audio
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       PREVIEW MODAL
+  ============================================================ -->
+  <div class="modal-overlay" id="previewModal">
+    <div class="modal-content preview-modal-content">
+      <div class="modal-header">
+        <h2 id="previewTitle">Session Title</h2>
+        <button class="modal-close" aria-label="Close modal" data-modal="previewModal">✕</button>
+      </div>
+      <div class="modal-body">
+        <!-- Audio Player Section -->
+        <div class="audio-player-section">
+          <label class="audio-player-label">🎧 Audio Recording</label>
+          <audio id="previewAudio" controls>
+            <source src="" type="audio/mpeg" />
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+
+        <!-- Text Content Section -->
+        <div class="text-content" id="previewContent">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-content">
+        <!-- Brand Section -->
+        <div class="footer-section">
+          <h3 style="font-family: var(--font-arabic);">قهوة عربية ☕</h3>
+          <p>A weekly community gathering where language learners from around the world connect over coffee and discover the beauty of Arabic together.</p>
+          <div class="social-icons">
+            <a href="#" title="Instagram">📷</a>
+            <a href="#" title="Twitter">𝕏</a>
+            <a href="#" title="YouTube">▶️</a>
+            <a href="#" title="WhatsApp">💬</a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="index.html#sessions">Upcoming Sessions</a></li>
+            <li><a href="archive.html">Archive</a></li>
+            <li><a href="index.html#join">Join the Community</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div class="footer-section">
+          <h3>Resources</h3>
+          <ul class="footer-links">
+            <li><a href="archive.html">Session Archive</a></li>
+            <li><a href="#">Vocabulary Sheets</a></li>
+            <li><a href="#">Arabic Learning Tips</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>© 2026 Arabic Coffee Talk · قهوة عربية. All rights reserved.</p>
+        <p>Made with ☕ & ❤️ for language lovers worldwide</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    // ============================================================
+    // DATA: Session Information with Audio & PDF Paths
+    // ============================================================
+    const sessions = [
+      {
+        id: 1,
+        emoji: '☕',
+        title: 'Ordering Coffee in Arabic',
+        date: 'May 2026',
+        description: 'Learn how to order coffee in Arabic like a local. Perfect for café conversations!',
+        pdfPath: '/materials/session-1-ordering-coffee.pdf',
+        audioPath: '/materials/session-1-ordering-coffee.mp3',
+        content: `
+          <p><strong>أهلاً وسهلاً!</strong> Welcome to our first session. في هذه الجلسة، سنتعلم كيفية طلب القهوة باللغة العربية.</p>
+          
+          <p><strong>Key Phrases:</strong></p>
+          <p>• أريد قهوة سوداء (I want black coffee)<br/>
+          • قهوة مع الحليب (Coffee with milk)<br/>
+          • قهوة بدون سكر (Coffee without sugar)<br/>
+          • كوب صغير (Small cup)<br/>
+          • كوب كبير (Large cup)</p>
+          
+          <p><strong>Dialogue:</strong></p>
+          <p>السلام عليكم ورحمة الله وبركاته<br/>
+          - مرحباً! ماذا تريد؟<br/>
+          - أريد قهوة سوداء من فضلك<br/>
+          - تفضل! هنا قهوتك<br/>
+          - شكراً جزيلاً!<br/>
+          - عفواً!</p>
+          
+          <p><em>Practice these phrases daily to build confidence in café conversations!</em></p>
+        `
+      },
+      {
+        id: 2,
+        emoji: '🌙',
+        title: 'Arabic Greetings & First Impressions',
+        date: 'May 2026',
+        description: 'Master the art of greeting in Arabic. From formal to casual, learn it all.',
+        pdfPath: '/materials/session-2-greetings.pdf',
+        audioPath: '/materials/session-2-greetings.mp3',
+        content: `
+          <p><strong>السلام عليكم ورحمة الله وبركاته</strong> - The most formal greeting meaning "Peace be upon you and God's mercy and blessings."</p>
+          
+          <p><strong>Formal Greetings:</strong></p>
+          <p>• السلام عليكم (As-salamu alaikum) - Peace be upon you<br/>
+          • صباح الخير (Sabah al-khair) - Good morning<br/>
+          • مساء الخير (Masaa al-khair) - Good evening<br/>
+          • كيف حالك؟ (Kayf halak?) - How are you? (male)</p>
+          
+          <p><strong>Casual Greetings:</strong></p>
+          <p>• مرحبا (Marhaba) - Hello<br/>
+          • كيفك؟ (Keefak?) - How are you? (informal)<br/>
+          • أنا بخير (Ana bekhair) - I'm fine<br/>
+          • الحمد لله (Al-hamdu lillah) - Thank God</p>
+          
+          <p><strong>Response Phrases:</strong></p>
+          <p>• وعليكم السلام ورحمة الله وبركاته (Wa alaikum as-salam wa rahmat Allah wa barakatuh) - And upon you be peace, God's mercy, and blessings</p>
+          
+          <p><em>Remember: Greetings are the foundation of respectful communication in Arabic culture!</em></p>
+        `
+      },
+      {
+        id: 3,
+        emoji: '🍽️',
+        title: 'Arabic Food & Flavors',
+        date: 'May 2026',
+        description: 'Discover the vocabulary of Arabic cuisine and food culture.',
+        pdfPath: '/materials/session-3-food.pdf',
+        audioPath: '/materials/session-3-food.mp3',
+        content: `
+          <p><strong>الطعام العربي</strong> - Arabic food is rich in flavors and cultural significance. Let's explore the vocabulary!</p>
+          
+          <p><strong>Common Dishes:</strong></p>
+          <p>• الفلافل (Al-falafel) - Fried chickpea balls<br/>
+          • الحمص (Al-hummus) - Chickpea dip<br/>
+          • الكباب (Al-kebab) - Grilled meat skewers<br/>
+          • الشاورما (Al-shawarma) - Rotisserie meat<br/>
+          • الفتوش (Al-fattoush) - Salad with pita chips</p>
+          
+          <p><strong>Spices & Flavors:</strong></p>
+          <p>• الزعتر (Az-zaatar) - Thyme<br/>
+          • الكمون (Al-cumin) - Cumin<br/>
+          • الفلفل (Al-filfil) - Pepper<br/>
+          • الملح (Al-milh) - Salt<br/>
+          • الثوم (At-thoom) - Garlic</p>
+          
+          <p><strong>Useful Phrases:</strong></p>
+          <p>• هذا لذيذ جداً (Haza lazeez jiddan) - This is very delicious<br/>
+          • أنا جائع (Ana jaae) - I'm hungry<br/>
+          • الفاتورة من فضلك (Al-fatura min fadlak) - The bill, please</p>
+          
+          <p><em>Food is a universal language that brings people together!</em></p>
+        `
+      },
+      {
+        id: 4,
+        emoji: '🎶',
+        title: 'Arabic Music & Poetry',
+        date: 'May 2026',
+        description: 'Dive into the soul of Arabic language through music and poetry.',
+        pdfPath: '/materials/session-4-music.pdf',
+        audioPath: '/materials/session-4-music.mp3',
+        content: `
+          <p><strong>الموسيقى والشعر العربي</strong> - Arabic music and poetry are windows into the culture and emotions of the Arab world.</p>
+          
+          <p><strong>Musical Terms:</strong></p>
+          <p>• الموسيقى (Al-museeqa) - Music<br/>
+          • الأغنية (Al-ughnya) - Song<br/>
+          • الشاعر (Ash-shair) - Poet<br/>
+          • الشعر (Ash-shir) - Poetry<br/>
+          • الآلة (Al-ala) - Instrument</p>
+          
+          <p><strong>Famous Instruments:</strong></p>
+          <p>• العود (Al-oud) - Oud (lute)<br/>
+          • الناي (An-nay) - Ney (flute)<br/>
+          • الطبل (At-tabl) - Drum<br/>
+          • القانون (Al-qanun) - Qanun (zither)</p>
+          
+          <p><strong>Poetry Appreciation:</strong></p>
+          <p>• البيت (Al-bayt) - Verse<br/>
+          • القافية (Al-qafiya) - Rhyme<br/>
+          • الوزن (Al-wazn) - Meter<br/>
+          • الجمال (Al-jamal) - Beauty</p>
+          
+          <p><em>Through music and poetry, we connect with the heart of Arabic culture!</em></p>
+        `
+      },
+      {
+        id: 5,
+        emoji: '💬',
+        title: 'Everyday Conversations',
+        date: 'May 2026',
+        description: 'Real-world Arabic phrases for daily interactions.',
+        pdfPath: '/materials/session-5-conversations.pdf',
+        audioPath: '/materials/session-5-conversations.mp3',
+        content: `
+          <p><strong>المحادثات اليومية</strong> - Master the phrases you'll actually use in everyday situations!</p>
+          
+          <p><strong>At the Market:</strong></p>
+          <p>• كم السعر؟ (Kam as-siar?) - What's the price?<br/>
+          • هذا غالي جداً (Haza ghali jiddan) - This is too expensive<br/>
+          • هل لديك شيء أرخص؟ (Hal ladayka shay arkhas?) - Do you have something cheaper?</p>
+          
+          <p><strong>In a Taxi:</strong></p>
+          <p>• أين تذهب؟ (Ayna tadhab?) - Where are you going?<br/>
+          • إلى الفندق من فضلك (Ila al-funduq min fadlak) - To the hotel, please<br/>
+          • كم الأجرة؟ (Kam al-ujra?) - How much is the fare?</p>
+          
+          <p><strong>Making Friends:</strong></p>
+          <p>• ما اسمك؟ (Ma asmak?) - What's your name?<br/>
+          • أنا سعيد بلقائك (Ana saeed biliqaek) - I'm happy to meet you<br/>
+          • من أين أنت؟ (Min ayna anta?) - Where are you from?</p>
+          
+          <p><em>Practice these phrases and you'll be conversing naturally in no time!</em></p>
+        `
+      },
+      {
+        id: 6,
+        emoji: '🌍',
+        title: 'Arabic Culture & Traditions',
+        date: 'May 2026',
+        description: 'Learn about Arab culture, traditions, and customs.',
+        pdfPath: '/materials/session-6-culture.pdf',
+        audioPath: '/materials/session-6-culture.mp3',
+        content: `
+          <p><strong>الثقافة والتقاليد العربية</strong> - Understanding culture is key to truly understanding a language.</p>
+          
+          <p><strong>Important Traditions:</strong></p>
+          <p>• الضيافة (Ad-diyafa) - Hospitality - a cornerstone of Arab culture<br/>
+          • الاحترام (Al-ihtiraam) - Respect for elders<br/>
+          • الأسرة (Al-usra) - Family values are central<br/>
+          • الكرم (Al-karam) - Generosity</p>
+          
+          <p><strong>Celebrations:</strong></p>
+          <p>• العيد (Al-eid) - Festival/Holiday<br/>
+          • عيد الفطر (Eid al-Fitr) - Festival after Ramadan<br/>
+          • عيد الأضحى (Eid al-Adha) - Festival of Sacrifice<br/>
+          • حفل الزفاف (Hafal az-zifaf) - Wedding celebration</p>
+          
+          <p><strong>Cultural Values:</strong></p>
+          <p>• الشرف (Ash-sharaf) - Honor<br/>
+          • الكرامة (Al-karama) - Dignity<br/>
+          • الوفاء (Al-wafa) - Loyalty<br/>
+          • الصداقة (As-sadaqa) - Friendship</p>
+          
+          <p><em>Culture and language are inseparable - learn one to truly master the other!</em></p>
+        `
+      }
+    ];
+
+    // ============================================================
+    // STATE & VARIABLES
+    // ============================================================
+    let filteredSessions = [...sessions];
+    let currentSessionId = null;
+
+    // ============================================================
+    // UTILITY FUNCTIONS
+    // ============================================================
+
+    /**
+     * Close a modal by ID
+     */
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.classList.remove('active');
+      }
+    }
+
+    /**
+     * Open a modal by ID
+     */
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.classList.add('active');
+      }
+    }
+
+    /**
+     * Simulate file download
+     */
+    function downloadFile(filename) {
+      // In a real app, this would trigger an actual download
+      // For demo purposes, we'll show a success message
+      const link = document.createElement('a');
+      link.href = filename;
+      link.download = filename.split('/').pop();
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    /**
+     * Filter and sort sessions
+     */
+    function filterAndSortSessions() {
+      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+      const sortValue = document.getElementById('sortSelect').value;
+
+      // Filter by search term
+      filteredSessions = sessions.filter(session => {
+        const titleMatch = session.title.toLowerCase().includes(searchTerm);
+        const descMatch = session.description.toLowerCase().includes(searchTerm);
+        return titleMatch || descMatch;
+      });
+
+      // Sort
+      if (sortValue === 'oldest') {
+        filteredSessions.sort((a, b) => a.id - b.id);
+      } else if (sortValue === 'title') {
+        filteredSessions.sort((a, b) => a.title.localeCompare(b.title));
+      } else {
+        // newest (default)
+        filteredSessions.sort((a, b) => b.id - a.id);
+      }
+
+      renderSessions();
+    }
+
+    /**
+     * Render sessions to the grid
+     */
+    function renderSessions() {
+      const grid = document.getElementById('sessionsGrid');
+      const noResults = document.getElementById('noResults');
+
+      if (filteredSessions.length === 0) {
+        grid.classList.add('hidden');
+        noResults.classList.remove('hidden');
+        return;
+      }
+
+      grid.classList.remove('hidden');
+      noResults.classList.add('hidden');
+
+      grid.innerHTML = filteredSessions.map(session => `
+        <div class="session-card">
+          <div class="session-emoji">${session.emoji}</div>
+          <div class="session-date">📅 ${session.date}</div>
+          <h3 class="session-title">${session.title}</h3>
+          <p class="session-description">${session.description}</p>
+          <div class="session-actions">
+            <button class="btn btn-download" data-session-id="${session.id}">
+              📥 Download
+            </button>
+            <button class="btn btn-preview" data-session-id="${session.id}">
+              👁️ Preview
+            </button>
+          </div>
+        </div>
+      `).join('');
+
+      // Attach event listeners to new buttons
+      attachEventListeners();
+    }
+
+    /**
+     * Attach event listeners to download and preview buttons
+     */
+    function attachEventListeners() {
+      // Download buttons
+      document.querySelectorAll('.btn-download').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const sessionId = parseInt(e.target.dataset.sessionId);
+          currentSessionId = sessionId;
+          openModal('downloadModal');
+        });
+      });
+
+      // Preview buttons
+      document.querySelectorAll('.btn-preview').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const sessionId = parseInt(e.target.dataset.sessionId);
+          const session = sessions.find(s => s.id === sessionId);
+          if (session) {
+            openPreviewModal(session);
+          }
+        });
+      });
+    }
+
+    /**
+     * Open preview modal with session content
+     */
+    function openPreviewModal(session) {
+      document.getElementById('previewTitle').textContent = session.title;
+      document.getElementById('previewAudio').src = session.audioPath;
+      document.getElementById('previewContent').innerHTML = session.content;
+      openModal('previewModal');
+    }
+
+    /**
+     * Get current session data
+     */
+    function getCurrentSession() {
+      return sessions.find(s => s.id === currentSessionId);
+    }
+
+    // ============================================================
+    // EVENT LISTENERS
+    // ============================================================
+
+    // Search input
+    document.getElementById('searchInput').addEventListener('input', filterAndSortSessions);
+
+    // Sort select
+    document.getElementById('sortSelect').addEventListener('change', filterAndSortSessions);
+
+    // Modal close buttons
+    document.querySelectorAll('.modal-close').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const modalId = e.target.dataset.modal;
+        closeModal(modalId);
+      });
+    });
+
+    // Close modal when clicking overlay
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+          closeModal(overlay.id);
+        }
+      });
+    });
+
+    // Download PDF button
+    document.getElementById('downloadPdfBtn').addEventListener('click', () => {
+      const session = getCurrentSession();
+      if (session) {
+        downloadFile(session.pdfPath);
+        closeModal('downloadModal');
+        // Optional: Show success message
+        alert(`📄 Downloading: ${session.title} (PDF)`);
+      }
+    });
+
+    // Download Audio button
+    document.getElementById('downloadAudioBtn').addEventListener('click', () => {
+      const session = getCurrentSession();
+      if (session) {
+        downloadFile(session.audioPath);
+        closeModal('downloadModal');
+        // Optional: Show success message
+        alert(`🎵 Downloading: ${session.title} (Audio)`);
+      }
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 40) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // ============================================================
+    // INITIALIZATION
+    // ============================================================
+
+    // Initial render
+    renderSessions();
+  </script>
+</body>
+</html>
