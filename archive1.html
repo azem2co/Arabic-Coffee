@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archive | Arabic Coffee Talk | قهوة عربية</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* ============================================================
+       CSS CUSTOM PROPERTIES (Design Tokens)
+    ============================================================ */
+    :root {
+      --color-primary:    #4B2E2B;
+      --color-secondary:  #E6D3B3;
+      --color-bg:         #F7F3EE;
+      --color-accent:     #C8A96A;
+      --color-olive:      #6B7D5C;
+      --color-text:       #2D1F1E;
+      --color-text-light: #7A5C58;
+      --color-white:      #FFFFFF;
+      --color-card-bg:    #FFFDF9;
+
+      --font-arabic:  'Cairo', sans-serif;
+      --font-english: 'Poppins', sans-serif;
+
+      --radius-sm:  8px;
+      --radius-md:  12px;
+      --radius-lg:  20px;
+      --radius-xl:  32px;
+
+      --shadow-sm:  0 2px 8px rgba(75, 46, 43, 0.08);
+      --shadow-md:  0 6px 24px rgba(75, 46, 43, 0.12);
+      --shadow-lg:  0 16px 48px rgba(75, 46, 43, 0.16);
+
+      --max-width: 1200px;
+      --transition: 0.3s ease;
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-english);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul { list-style: none; }
+
+    /* ============================================================
+       ARABIC GEOMETRIC PATTERN
+    ============================================================ */
+    .pattern-bg {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cg fill='none' stroke='%23C8A96A' stroke-width='0.6' opacity='0.18'%3E%3Cpolygon points='30,2 58,16 58,44 30,58 2,44 2,16'/%3E%3Cpolygon points='30,10 50,20 50,40 30,50 10,40 10,20'/%3E%3Cline x1='30' y1='2' x2='30' y2='10'/%3E%3Cline x1='58' y1='16' x2='50' y2='20'/%3E%3Cline x1='58' y1='44' x2='50' y2='40'/%3E%3Cline x1='30' y1='58' x2='30' y2='50'/%3E%3Cline x1='2' y1='44' x2='10' y2='40'/%3E%3Cline x1='2' y1='16' x2='10' y2='20'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 60px 60px;
+    }
+
+    /* ============================================================
+       LAYOUT HELPERS
+    ============================================================ */
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin-inline: auto;
+      padding-inline: 24px;
+    }
+
+    .section {
+      padding-block: 96px;
+    }
+
+    /* ============================================================
+       SCROLL ANIMATION CLASSES
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: var(--radius-xl);
+      font-family: var(--font-english);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: background var(--transition), color var(--transition),
+                  border-color var(--transition), transform var(--transition),
+                  box-shadow var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: translateY(0); }
+
+    /* Primary button */
+    .btn-primary {
+      background: var(--color-primary);
+      color: var(--color-white);
+      box-shadow: 0 4px 16px rgba(75, 46, 43, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      box-shadow: 0 8px 24px rgba(200, 169, 106, 0.4);
+    }
+
+    /* Outline button */
+    .btn-outline {
+      background: transparent;
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+    }
+
+    .btn-outline:hover {
+      background: var(--color-accent);
+      color: var(--color-white);
+      border-color: var(--color-accent);
+      box-shadow: 0 6px 20px rgba(200, 169, 106, 0.35);
+    }
+
+    /* Small button variant */
+    .btn-sm {
+      padding: 10px 18px;
+      font-size: 0.8rem;
+    }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding-block: 18px;
+      transition: background var(--transition), box-shadow var(--transition),
+                  padding var(--transition);
+    }
+
+    .navbar.scrolled {
+      background: rgba(247, 243, 238, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-sm);
+      padding-block: 12px;
+    }
+
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Logo */
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .nav-logo-arabic {
+      font-family: var(--font-arabic);
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--color-primary);
+    }
+
+    .nav-logo-tagline {
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: var(--color-accent);
+      letter-spacing: 0.06em;
+    }
+
+    /* Nav links */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--color-text-light);
+      transition: color var(--transition);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--color-accent);
+      border-radius: 2px;
+      transition: width var(--transition);
+    }
+
+    .nav-links a:hover { color: var(--color-primary); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* Hamburger */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--color-primary);
+      border-radius: 2px;
+      transition: transform var(--transition), opacity var(--transition);
+    }
+
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile nav */
+    .nav-mobile {
+      display: none;
+      flex-direction: column;
+      gap: 0;
+      background: rgba(247, 243, 238, 0.98);
+      backdrop-filter: blur(12px);
+      padding: 16px 24px 24px;
+      border-top: 1px solid var(--color-secondary);
+    }
+
+    .nav-mobile.open { display: flex; }
+
+    .nav-mobile a {
+      padding: 12px 0;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--color-text);
+      border-bottom: 1px solid rgba(230, 211, 179, 0.4);
+      transition: color var(--transition), padding-left var(--transition);
+    }
+
+    .nav-mobile a:hover {
+      color: var(--color-accent);
+      padding-left: 8px;
+    }
+
+    .nav-mobile a:last-child { border-bottom: none; }
+
+    /* ============================================================
+       HEADER SECTION
+    ============================================================ */
+    .archive-header {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .archive-header::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -120px;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(200, 169, 106, 0.18) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .archive-header::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: -80px;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(107, 125, 92, 0.12) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .archive-header-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+
+    .archive-title {
+      font-family: var(--font-arabic);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
+      color: var(--color-primary);
+      line-height: 1.1;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    .archive-subtitle {
+      font-family: var(--font-arabic);
+      font-size: clamp(0.95rem, 2vw, 1.2rem);
+      color: var(--color-text-light);
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+
+    .archive-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(200, 169, 106, 0.15);
+      border: 1px solid rgba(200, 169, 106, 0.4);
+      color: var(--color-accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: var(--radius-xl);
+      margin-bottom: 24px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ============================================================
+       ARCHIVE GRID
+    ============================================================ */
+    .archive-section {
+      background: var(--color-white);
+      padding-block: 80px;
+    }
+
+    .archive-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    /* ============================================================
+       SESSION CARD
+    ============================================================ */
+    .session-card {
+      background: var(--color-card-bg);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(230, 211, 179, 0.5);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: transform var(--transition), box-shadow var(--transition),
+                  border-color var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .session-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+
+    .session-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(200, 169, 106, 0.4);
+    }
+
+    .session-card:hover::before { transform: scaleX(1); }
+
+    .session-emoji {
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .session-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .session-date {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(200, 169, 106, 0.1);
+      color: var(--color-accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(200, 169, 106, 0.25);
+      white-space: nowrap;
+    }
+
+    .session-title {
+      font-family: var(--font-arabic);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      line-height: 1.35;
+    }
+
+    .session-description {
+      font-size: 0.875rem;
+      color: var(--color-text-light);
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .session-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+
+    .session-actions .btn {
+      flex: 1;
+      min-width: 140px;
+      justify-content: center;
+    }
+
+    /* ============================================================
+       PREVIEW MODAL
+    ============================================================ */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-overlay.active { display: flex; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .modal-overlay {
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      max-width: 700px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+      animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 32px;
+      border-bottom: 1px solid var(--color-secondary);
+      position: sticky;
+      top: 0;
+      background: var(--color-white);
+      z-index: 2001;
+    }
+
+    .modal-title {
+      font-family: var(--font-arabic);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--color-text-light);
+      transition: color var(--transition), transform var(--transition);
+      padding: 0;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-close:hover {
+      color: var(--color-primary);
+      transform: rotate(90deg);
+    }
+
+    .modal-body {
+      padding: 32px;
+    }
+
+    .modal-section {
+      margin-bottom: 28px;
+    }
+
+    .modal-section:last-child { margin-bottom: 0; }
+
+    .modal-section-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-accent);
+      margin-bottom: 12px;
+    }
+
+    .modal-text {
+      font-family: var(--font-arabic);
+      font-size: 1rem;
+      line-height: 1.9;
+      color: var(--color-text);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .modal-audio {
+      width: 100%;
+      margin-top: 12px;
+      border-radius: var(--radius-md);
+    }
+
+    /* ============================================================
+       FILTER / SEARCH (Optional)
+    ============================================================ */
+    .archive-controls {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .search-input {
+      flex: 1;
+      min-width: 200px;
+      padding: 12px 18px;
+      background: var(--color-card-bg);
+      border: 1.5px solid var(--color-secondary);
+      border-radius: var(--radius-md);
+      font-family: var(--font-english);
+      font-size: 0.9rem;
+      color: var(--color-text);
+      outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .search-input::placeholder { color: #b5a49e; }
+
+    .search-input:focus {
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px rgba(200, 169, 106, 0.15);
+    }
+
+    .sort-select {
+      padding: 12px 18px;
+      background: var(--color-card-bg);
+      border: 1.5px solid var(--color-secondary);
+      border-radius: var(--radius-md);
+      font-family: var(--font-english);
+      font-size: 0.9rem;
+      color: var(--color-text);
+      outline: none;
+      cursor: pointer;
+      transition: border-color var(--transition), box-shadow var(--transition);
+      appearance: none;
+      padding-right: 40px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237A5C58' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 16px;
+      padding-right: 40px;
+    }
+
+    .sort-select:focus {
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px rgba(200, 169, 106, 0.15);
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--color-text-light);
+    }
+
+    .no-results-icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .no-results-text {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer {
+      background: #2D1F1E;
+      color: rgba(230, 211, 179, 0.75);
+      padding-block: 56px 32px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-logo-arabic {
+      font-family: var(--font-arabic);
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--color-secondary);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .footer-logo-tagline {
+      font-size: 0.75rem;
+      color: var(--color-accent);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .footer-brand-desc {
+      font-size: 0.85rem;
+      line-height: 1.75;
+      max-width: 280px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .footer-social-link {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      background: rgba(200, 169, 106, 0.12);
+      border: 1px solid rgba(200, 169, 106, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: rgba(230, 211, 179, 0.7);
+      transition: background var(--transition), color var(--transition),
+                  border-color var(--transition), transform var(--transition);
+    }
+
+    .footer-social-link:hover {
+      background: rgba(200, 169, 106, 0.25);
+      color: var(--color-accent);
+      border-color: rgba(200, 169, 106, 0.5);
+      transform: translateY(-3px);
+    }
+
+    .footer-col-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-secondary);
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: 0.875rem;
+      color: rgba(230, 211, 179, 0.65);
+      transition: color var(--transition), padding-left var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--color-accent);
+      padding-left: 6px;
+    }
+
+    .footer-bottom {
+      padding-top: 28px;
+      border-top: 1px solid rgba(200, 169, 106, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-copyright {
+      font-size: 0.8rem;
+      color: rgba(230, 211, 179, 0.45);
+    }
+
+    .footer-made-with {
+      font-size: 0.8rem;
+      color: rgba(230, 211, 179, 0.45);
+    }
+
+    .footer-made-with span { color: var(--color-accent); }
+
+    /* ============================================================
+       RESPONSIVE — TABLET (≤ 900px)
+    ============================================================ */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+
+      .archive-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+      }
+
+      .footer-brand { grid-column: 1 / -1; }
+    }
+
+    /* ============================================================
+       RESPONSIVE — MOBILE (≤ 600px)
+    ============================================================ */
+    @media (max-width: 600px) {
+      .container { padding-inline: 20px; }
+
+      .archive-title { font-size: clamp(1.8rem, 8vw, 2.5rem); }
+
+      .archive-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .session-actions {
+        flex-direction: column;
+      }
+
+      .session-actions .btn {
+        width: 100%;
+      }
+
+      .archive-controls {
+        flex-direction: column;
+      }
+
+      .search-input {
+        min-width: 100%;
+      }
+
+      .sort-select {
+        width: 100%;
+      }
+
+      .modal-header {
+        padding: 20px;
+      }
+
+      .modal-body {
+        padding: 20px;
+      }
+
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <header>
+    <nav class="navbar" id="navbar">
+      <div class="container">
+        <a href="index.html" class="nav-logo" aria-label="Arabic Coffee Talk home">
+          <span class="nav-logo-arabic">قهوة عربية ☕</span>
+          <span class="nav-logo-tagline">Sip Coffee. Speak Arabic.</span>
+        </a>
+
+        <ul class="nav-links" role="navigation" aria-label="Main navigation">
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#sessions">Sessions</a></li>
+          <li><a href="archive.html" style="color: var(--color-primary);">Archive</a></li>
+          <li><a href="index.html#join"><span class="btn btn-primary btn-sm">Join Now</span></a></li>
+        </ul>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <!-- Mobile menu -->
+      <div class="nav-mobile" id="navMobile" role="navigation" aria-label="Mobile navigation">
+        <a href="index.html#about"    onclick="closeMobileMenu()">About</a>
+        <a href="index.html#sessions" onclick="closeMobileMenu()">Sessions</a>
+        <a href="archive.html"        onclick="closeMobileMenu()">Archive</a>
+        <a href="index.html#join"     onclick="closeMobileMenu()">Join Now ☕</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         ARCHIVE HEADER
+    ============================================================ -->
+    <section class="archive-header pattern-bg" id="archive-header" aria-label="Archive header">
+      <div class="archive-header-content">
+        <div class="archive-badge reveal">
+          📚 &nbsp;Session Archive
+        </div>
+
+        <h1 class="archive-title reveal">أرشيف مقهى العربية</h1>
+
+        <p class="archive-subtitle reveal">
+          هنا تجد جميع الجلسات السابقة مع موادها لتستمتع بالتعلم في أي وقت ☕
+        </p>
+
+        <p style="font-size: 0.95rem; color: var(--color-text-light); margin-top: 24px;" class="reveal">
+          Explore past sessions, download materials, and continue your Arabic learning journey.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ARCHIVE SECTION
+    ============================================================ -->
+    <section class="archive-section" id="archive-content" aria-label="Session archive">
+      <div class="container">
+
+        <!-- Search & Filter -->
+        <div class="archive-controls">
+          <input
+            type="text"
+            class="search-input"
+            id="searchInput"
+            placeholder="Search sessions..."
+            aria-label="Search sessions"
+          />
+          <select class="sort-select" id="sortSelect" aria-label="Sort sessions">
+            <option value="newest">Newest First</option>
+            <option value="oldest">Oldest First</option>
+            <option value="title">Title (A-Z)</option>
+          </select>
+        </div>
+
+        <!-- Archive Grid -->
+        <div class="archive-grid" id="archiveGrid">
+          <!-- Sessions will be dynamically rendered here -->
+        </div>
+
+        <!-- No Results Message -->
+        <div class="no-results" id="noResults" style="display: none;">
+          <span class="no-results-icon">🔍</span>
+          <p class="no-results-text">No sessions found matching your search.</p>
+          <p style="font-size: 0.9rem; color: var(--color-text-light);">Try adjusting your search terms.</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       PREVIEW MODAL
+  ============================================================ -->
+  <div class="modal-overlay" id="previewModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalTitle">Session Title</h2>
+        <button class="modal-close" id="modalClose" aria-label="Close modal">✕</button>
+      </div>
+
+      <div class="modal-body">
+
+        <!-- Session Content -->
+        <div class="modal-section" id="contentSection">
+          <p class="modal-section-title">📖 Session Content</p>
+          <div class="modal-text" id="modalContent">
+            Content will appear here...
+          </div>
+        </div>
+
+        <!-- Audio Player -->
+        <div class="modal-section" id="audioSection" style="display: none;">
+          <p class="modal-section-title">🎵 Audio Recording</p>
+          <audio controls class="modal-audio" id="modalAudio"></audio>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <!-- Brand -->
+        <div class="footer-brand">
+          <span class="footer-logo-arabic">قهوة عربية ☕</span>
+          <span class="footer-logo-tagline">Sip Coffee. Speak Arabic.</span>
+          <p class="footer-brand-desc">
+            A weekly community gathering where language learners from around the world
+            connect over coffee and discover the beauty of Arabic together.
+          </p>
+
+          <div class="footer-social" aria-label="Social media links">
+            <a href="#" class="footer-social-link" aria-label="Instagram" title="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="Twitter" title="Twitter / X">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.43.36a9 9 0 0 1-2.88 1.1A4.52 4.52 0 0 0 16.11 0c-2.5 0-4.52 2.02-4.52 4.52 0 .35.04.7.11 1.03C7.69 5.37 4.07 3.58 1.64.9a4.52 4.52 0 0 0-.61 2.27c0 1.57.8 2.95 2.01 3.76a4.5 4.5 0 0 1-2.05-.57v.06c0 2.19 1.56 4.02 3.63 4.43a4.56 4.56 0 0 1-2.04.08c.57 1.79 2.24 3.09 4.21 3.13A9.05 9.05 0 0 1 0 19.54a12.77 12.77 0 0 0 6.92 2.03c8.3 0 12.84-6.88 12.84-12.85 0-.2 0-.39-.01-.58A9.17 9.17 0 0 0 23 3z"></path>
+              </svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="YouTube" title="YouTube">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"></path>
+                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon>
+              </svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="WhatsApp" title="WhatsApp Community">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick links -->
+        <div>
+          <p class="footer-col-title">Quick Links</p>
+          <ul class="footer-links">
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="index.html#sessions">Upcoming Sessions</a></li>
+            <li><a href="archive.html">Archive</a></li>
+            <li><a href="index.html#join">Join the Community</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div>
+          <p class="footer-col-title">Resources</p>
+          <ul class="footer-links">
+            <li><a href="archive.html">Session Archive</a></li>
+            <li><a href="#">Vocabulary Sheets</a></li>
+            <li><a href="#">Arabic Learning Tips</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          © 2026 Arabic Coffee Talk · قهوة عربية. All rights reserved.
+        </p>
+        <p class="footer-made-with">
+          Made with <span>☕ & ❤️</span> for language lovers worldwide
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    /* ============================================================
+       SESSION DATA
+    ============================================================ */
+    const sessions = [
+      {
+        id: 1,
+        title: "Ordering Coffee in Arabic ☕",
+        date: "May 2026",
+        description: "Learn how to order coffee in Arabic like a local. Perfect for café conversations!",
+        emoji: "☕",
+        content: `أهلاً وسهلاً! Welcome to our first session.
+
+في هذه الجلسة، سنتعلم كيفية طلب القهوة باللغة العربية.
+
+Key Phrases:
+- أريد قهوة سوداء (I want black coffee)
+- قهوة مع الحليب (Coffee with milk)
+- قهوة بدون سكر (Coffee without sugar)
+- كوب صغير (Small cup)
+- كوب كبير (Large cup)
+
+Dialogue:
+السلام عليكم ورحمة الله وبركاته
+- مرحباً! ماذا تريد؟
+- أريد قهوة سوداء من فضلك
+- تفضل! هنا قهوتك
+- شكراً جزيلاً!
+- عفواً!`,
+        audio: "data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEAQB8AAAB9AAACABAAZGF0YQIAAAAAAA==",
+        pdfUrl: "#",
+        audioUrl: "#"
+      },
+      {
+        id: 2,
+        title: "Arabic Greetings & First Impressions 🌙",
+        date: "May 2026",
+        description: "Master the art of greeting in Arabic. From formal to casual, learn it all.",
+        emoji: "🌙",
+        content: `السلام عليكم ورحمة الله وبركاته
+
+In this session, we explore the rich world of Arabic greetings.
+
+Formal Greetings:
+- السلام عليكم ورحمة الله وبركاته (Peace be upon you and God's mercy and blessings)
+- وعليكم السلام ورحمة الله وبركاته (And upon you be peace and God's mercy and blessings)
+- كيف حالك؟ (How are you?)
+- الحمد لله، بخير (Praise be to God, I'm well)
+
+Casual Greetings:
+- مرحباً (Hello)
+- أهلاً (Hi)
+- كيفك؟ (How are you? - casual)
+- تمام التمام (Perfect/Great)
+
+Regional Variations:
+- Egyptian: "أهلاً وسهلاً"
+- Levantine: "كيفك انت؟"
+- Gulf: "السلام عليكم"`,
+        audio: "data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEAQB8AAAB9AAACABAAZGF0YQIAAAAAAA==",
+        pdfUrl: "#",
+        audioUrl: "#"
+      },
+      {
+        id: 3,
+        title: "Arabic Food & Flavors 🍽️",
+        date: "May 2026",
+        description: "Discover the vocabulary of Arabic cuisine and food culture.",
+        emoji: "🍽️",
+        content: `الطعام العربي
+
+Let's explore the delicious world of Arabic food!
+
+Common Dishes:
+- الفلافل (Falafel)
+- الحمص (Hummus)
+- الكبة (Kibbeh)
+- المجبوس (Majboos - rice with meat)
+- الكنافة (Kunafa - sweet pastry)
+- المنسف (Mansaf - traditional Levantine dish)
+
+Ingredients:
+- الزيت (Oil)
+- الملح (Salt)
+- الفلفل (Pepper)
+- الثوم (Garlic)
+- البصل (Onion)
+- الطماطم (Tomato)
+
+Dining Phrases:
+- هذا لذيذ جداً (This is very delicious)
+- أريد المزيد من فضلك (I want more, please)
+- الحساب من فضلك (The bill, please)`,
+        audio: "data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEAQB8AAAB9AAACABAAZGF0YQIAAAAAAA==",
+        pdfUrl: "#",
+        audioUrl: "#"
+      },
+      {
+        id: 4,
+        title: "Arabic Music & Poetry 🎶",
+        date: "May 2026",
+        description: "Dive into the soul of Arabic language through music and poetry.",
+        emoji: "🎶",
+        content: `الموسيقى والشعر العربي
+
+Exploring the lyrical beauty of Arabic!
+
+Famous Poets:
+- أحمد شوقي (Ahmad Shawqi)
+- نزار قباني (Nizar Qabbani)
+- محمود درويش (Mahmoud Darwish)
+
+Poetry Terms:
+- الشعر (Poetry)
+- البيت (Verse)
+- القافية (Rhyme)
+- الوزن (Meter)
+- الإيقاع (Rhythm)
+
+Famous Lines:
+- "أنا الذي نسج الكلام المعاني" (I am he who wove words with meanings)
+- "وطني لو شغلت بالخلد عنه نازعتني إليه في الخلد نفسي" (My homeland, even if I were occupied with paradise, my soul would yearn for it in paradise)
+
+Music Genres:
+- الموسيقى الكلاسيكية (Classical)
+- الموسيقى الشعبية (Folk)
+- الأم كلثوم (Umm Kulthum - legendary singer)`,
+        audio: "data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEAQB8AAAB9AAACABAAZGF0YQIAAAAAAA==",
+        pdfUrl: "#",
+        audioUrl: "#"
+      },
+      {
+        id: 5,
+        title: "Everyday Conversations 💬",
+        date: "May 2026",
+        description: "Real-world Arabic phrases for daily interactions.",
+        emoji: "💬",
+        content: `المحادثات اليومية
+
+Essential phrases for everyday Arabic conversations.
+
+At the Market:
+- كم السعر؟ (What's the price?)
+- غالي جداً (Very expensive)
+- هل يوجد خصم؟ (Is there a discount?)
+- أريد هذا من فضلك (I want this, please)
+
+Transportation:
+- أين محطة الحافلة؟ (Where is the bus station?)
+- تذكرة واحدة من فضلك (One ticket, please)
+- إلى أين تذهب؟ (Where are you going?)
+
+Small Talk:
+- من أين أنت؟ (Where are you from?)
+- ما اسمك؟ (What's your name?)
+- كم عمرك؟ (How old are you?)
+- ما عملك؟ (What's your job?)
+
+Polite Phrases:
+- من فضلك (Please)
+- شكراً (Thank you)
+- عفواً (You're welcome)
+- معذرة (Excuse me)`,
+        audio: "data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEAQB8AAAB9AAACABAAZGF0YQIAAAAAAA==",
+        pdfUrl: "#",
+        audioUrl: "#"
+      },
+      {
+        id: 6,
+        title: "Arabic Culture & Traditions 🌍",
+        date: "May 2026",
+        description: "Learn about Arab culture, traditions, and customs.",
+        emoji: "🌍",
+        content: `الثقافة والتقاليد العربية
+
+Understanding Arab culture and traditions.
+
+Holidays:
+- عيد الفطر (Eid al-Fitr)
+- عيد الأضحى (Eid al-Adha)
+- رأس السنة الهجرية (Islamic New Year)
+- المولد النبوي (Prophet's Birthday)
+
+Family & Social:
+- العائلة (Family)
+- الأب (Father)
+- الأم (Mother)
+- الأخ (Brother)
+- الأخت (Sister)
+- الجد (Grandfather)
+- الجدة (Grandmother)
+
+Customs:
+- الضيافة (Hospitality)
+- تقديم القهوة (Offering coffee)
+- الجلسات العائلية (Family gatherings)
+- احترام الكبار (Respecting elders)
+
+Traditional Arts:
+- الخط العربي (Arabic calligraphy)
+- الفن الإسلامي (Islamic art)
+- العمارة العربية (Arab architecture)`,
+        audio: "data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEAQB8AAAB9AAACABAAZGF0YQIAAAAAAA==",
+        pdfUrl: "#",
+        audioUrl: "#"
+      }
+    ];
+
+    /* ============================================================
+       1. NAVBAR — scroll effect & mobile toggle
+    ============================================================ */
+    const navbar    = document.getElementById('navbar');
+    const navToggle = document.getElementById('navToggle');
+    const navMobile = document.getElementById('navMobile');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }, { passive: true });
+
+    navToggle.addEventListener('click', () => {
+      const isOpen = navMobile.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    function closeMobileMenu() {
+      navMobile.classList.remove('open');
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }
+
+    document.addEventListener('click', (e) => {
+      if (!navbar.contains(e.target)) {
+        closeMobileMenu();
+      }
+    });
+
+    /* ============================================================
+       2. SCROLL REVEAL ANIMATION
+    ============================================================ */
+    const revealEls = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    /* ============================================================
+       3. DYNAMIC SESSION RENDERING
+    ============================================================ */
+    let filteredSessions = [...sessions];
+
+    function renderSessions(sessionsToRender = sessions) {
+      const archiveGrid = document.getElementById('archiveGrid');
+      const noResults = document.getElementById('noResults');
+
+      if (sessionsToRender.length === 0) {
+        archiveGrid.innerHTML = '';
+        noResults.style.display = 'block';
+        return;
+      }
+
+      noResults.style.display = 'none';
+
+      archiveGrid.innerHTML = sessionsToRender.map(session => `
+        <article class="session-card reveal">
+          <div class="session-header">
+            <span class="session-emoji">${session.emoji}</span>
+            <span class="session-date">📅 ${session.date}</span>
+          </div>
+
+          <h3 class="session-title">${session.title}</h3>
+          <p class="session-description">${session.description}</p>
+
+          <div class="session-actions">
+            <button class="btn btn-primary btn-sm" onclick="downloadSession(${session.id})">
+              📥 Download
+            </button>
+            <button class="btn btn-outline btn-sm" onclick="openPreview(${session.id})">
+              👁️ Preview
+            </button>
+          </div>
+        </article>
+      `).join('');
+
+      // Re-observe new elements
+      document.querySelectorAll('.session-card.reveal').forEach(el => {
+        revealObserver.observe(el);
+      });
+    }
+
+    /* ============================================================
+       4. SEARCH & FILTER
+    ============================================================ */
+    const searchInput = document.getElementById('searchInput');
+    const sortSelect = document.getElementById('sortSelect');
+
+    function filterAndSort() {
+      const searchTerm = searchInput.value.toLowerCase();
+
+      filteredSessions = sessions.filter(session =>
+        session.title.toLowerCase().includes(searchTerm) ||
+        session.description.toLowerCase().includes(searchTerm)
+      );
+
+      // Sort
+      const sortValue = sortSelect.value;
+      if (sortValue === 'newest') {
+        filteredSessions.reverse();
+      } else if (sortValue === 'oldest') {
+        filteredSessions.sort((a, b) => a.id - b.id);
+      } else if (sortValue === 'title') {
+        filteredSessions.sort((a, b) => a.title.localeCompare(b.title));
+      }
+
+      renderSessions(filteredSessions);
+    }
+
+    searchInput.addEventListener('input', filterAndSort);
+    sortSelect.addEventListener('change', filterAndSort);
+
+    /* ============================================================
+       5. PREVIEW MODAL
+    ============================================================ */
+    const previewModal = document.getElementById('previewModal');
+    const modalClose = document.getElementById('modalClose');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalContent = document.getElementById('modalContent');
+    const modalAudio = document.getElementById('modalAudio');
+    const audioSection = document.getElementById('audioSection');
+
+    function openPreview(sessionId) {
+      const session = sessions.find(s => s.id === sessionId);
+      if (!session) return;
+
+      modalTitle.textContent = session.title;
+      modalContent.textContent = session.content;
+
+      // Show/hide audio section based on availability
+      if (session.audioUrl && session.audioUrl !== '#') {
+        modalAudio.src = session.audioUrl;
+        audioSection.style.display = 'block';
+      } else {
+        audioSection.style.display = 'none';
+      }
+
+      previewModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePreview() {
+      previewModal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    modalClose.addEventListener('click', closePreview);
+
+    previewModal.addEventListener('click', (e) => {
+      if (e.target === previewModal) {
+        closePreview();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && previewModal.classList.contains('active')) {
+        closePreview();
+      }
+    });
+
+    /* ============================================================
+       6. DOWNLOAD FUNCTIONALITY
+    ============================================================ */
+    function downloadSession(sessionId) {
+      const session = sessions.find(s => s.id === sessionId);
+      if (!session) return;
+
+      // Create a simple text file download
+      const textContent = `${session.title}\n\n${session.content}`;
+      const blob = new Blob([textContent], { type: 'text/plain' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${session.title.replace(/\s+/g, '_')}.txt`;
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+    }
+
+    /* ============================================================
+       7. INITIAL RENDER
+    ============================================================ */
+    renderSessions(sessions);
+  </script>
+
+</body>
+</html>
